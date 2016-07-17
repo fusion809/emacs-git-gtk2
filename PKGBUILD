@@ -47,8 +47,6 @@ _savannah="git://git.savannah.gnu.org/emacs.git"
 _github="git+https://github.com/emacs-mirror/emacs.git"
 license=('GPL')
 makedepends=('git')
-conflicts=('emacs')
-provides=('emacs')
 source=("${_pkgname}::${_github}"
 #"${_pkgname}::${_savannah}"
 )
@@ -124,6 +122,8 @@ build() {
 package_emacs-git-gtk2() {
   pkgdesc="GNU Emacs, the extensible self-documenting text editor — built from git sources."
   depends=('gpm' 'giflib' 'm17n-lib' 'desktop-file-utils' 'alsa-lib' 'imagemagick' 'gtk2')
+  conflicts=('emacs')
+  provides=('emacs')
 
   cd "$srcdir/${_pkgname}"
 
@@ -149,6 +149,8 @@ package_emacs-git-gtk2() {
 package_emacs-git-docs() {
   pkgdesc="GNU Emacs, built from git sources — HTML and PDF documentation package."
   makedepends+=('texlive-core')
+
+  cd "$srcdir/${_pkgname}"
 
   make DESTDIR="$pkgdir/" install-html
   make DESTDIR="$pkgdir/" install-pdf
