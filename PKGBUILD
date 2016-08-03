@@ -38,7 +38,7 @@ DOCS_PDF=        # Generate and install pdf documentation.
 #######################################################################
 
 _pkgname=('emacs-git')
-pkgname=("$_pkgname-gtk2" "$_pkgname-docs")
+pkgname=("$_pkgname-gtk2")
 pkgver=25.1.50.r126661
 pkgrel=1
 arch=('i686' 'x86_64')
@@ -114,9 +114,6 @@ build() {
   #cd "$srcdir/${_pkgname}/lisp"
   #make autoloads
   #cd ../
-
-  make html
-  make pdf
 }
 
 package_emacs-git-gtk2() {
@@ -146,12 +143,12 @@ package_emacs-git-gtk2() {
   chown -R root:games "$pkgdir"/var/games
 }
 
-package_emacs-git-docs() {
-  pkgdesc="GNU Emacs, built from git sources — HTML and PDF documentation package."
-  makedepends+=('texlive-core')
+#package_emacs-git-docs() {
+ # pkgdesc="GNU Emacs, built from git sources — HTML and PDF documentation package."
+ # makedepends+=('texlive-core')
 
-  cd "$srcdir/${_pkgname}"
+#  cd "$srcdir/${_pkgname}"
 
-  make DESTDIR="$pkgdir/" install-html
-  make DESTDIR="$pkgdir/" install-pdf
-}
+ # make DESTDIR="$pkgdir/" install-html
+ # make DESTDIR="$pkgdir/" install-pdf
+#}
