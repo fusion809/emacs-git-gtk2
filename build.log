@@ -1,0 +1,28 @@
+  GEN      sieve.html
+  GEN      smtpmail.html
+  GEN      speedbar.html
+  GEN      srecode.html
+  GEN      todo-mode.html
+  GEN      tramp.html
+  GEN      url.html
+  GEN      vhdl-mode.html
+  GEN      vip.html
+  GEN      viper.html
+  GEN      widget.html
+  GEN      wisent.html
+  GEN      woman.html
+make[1]: Leaving directory 
+'/home/fusion809/GitHub/mine/packaging/emacs-git-gtk2/src/emacs-git/doc/misc'
+make -C doc/lispref pdf
+make[1]: Entering directory 
+'/home/fusion809/GitHub/mine/packaging/emacs-git-gtk2/src/emacs-git/doc/lispref'
+  GEN      elisp.pdf
+/usr/bin/texi2dvi: TeX neither supports -recorder nor outputs \openout lines in its log 
+file
+make[1]: *** [Makefile:159: elisp.pdf] Error 1
+make[1]: Leaving directory 
+'/home/fusion809/GitHub/mine/packaging/emacs-git-gtk2/src/emacs-git/doc/lispref'
+make: *** [Makefile:950: lispref-pdf] Error 2
+==> ERROR: A failure occurred in build().
+    Aborting...
+
