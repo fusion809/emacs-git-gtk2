@@ -39,7 +39,7 @@ DOCS_PDF=        # Generate and install pdf documentation.
 
 _pkgname=('emacs-git')
 pkgname=("$_pkgname-gtk2")
-pkgver=25.1.50.r126661
+pkgver=25.1.50.r126663
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.gnu.org/software/emacs/"
