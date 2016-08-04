@@ -29,7 +29,7 @@
 #######################################################################
 # Assign "YES" to the variable you want enabled, empty otherwise
 #######################################################################
-GTK3=""       # Leave empty to compile with gtk+ 2 support.
+GTK3=""          # Leave empty to compile with gtk+ 2 support.
 LTO=             # Enable link-time optimization. Broken.
 CAIRO=           # Very broken for me. Use at own risk.
 XWIDGETS=        # Use GTK+ native widgets pulled from webkitgtk.
