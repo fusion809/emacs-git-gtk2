@@ -39,7 +39,7 @@ DOCS_PDF=        # Generate and install pdf documentation.
 
 _pkgname=('emacs-git')
 pkgname=("$_pkgname-gtk2" "$_pkgname-docs")
-pkgver=25.1.50.r126798
+pkgver=25.1.rc1.r1743
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.gnu.org/software/emacs/"
@@ -54,10 +54,12 @@ md5sums=('SKIP')
 
 pkgver() {
   cd "$srcdir/${_pkgname}"
+  _basever="$(git describe --tags `git rev-list --tags --max-count=1`)"
+  _minver="${_basever//emacs-/}"
+  _minver="${_minver//-/.}"
   printf "%s.r%s" \
-    "$(grep AC_INIT configure.ac | \
-    sed -e 's/^.\+\ \([0-9]\+\.[0-9]\+\.[0-9]\+\).\+$/\1/')" \
-    "$(git rev-list --count HEAD)"
+    "${_minver}" \
+    "$(git rev-list --count ${_basever}..HEAD)"
 }
 
 
