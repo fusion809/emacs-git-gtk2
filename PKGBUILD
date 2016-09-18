@@ -39,7 +39,7 @@ DOCS_PDF=        # Generate and install pdf documentation.
 
 _pkgname=('emacs-git')
 pkgname=("$_pkgname-gtk2" "$_pkgname-docs")
-pkgver=25.1.rc2.r1875
+pkgver=25.1.r1
 pkgrel=1
 arch=('i686' 'x86_64')
 url="http://www.gnu.org/software/emacs/"
@@ -47,9 +47,7 @@ _savannah="git://git.savannah.gnu.org/emacs.git"
 _github="git+https://github.com/emacs-mirror/emacs.git"
 license=('GPL')
 makedepends=('git')
-source=("${_pkgname}::${_github}"
-#"${_pkgname}::${_savannah}"
-)
+source=("${_pkgname}::${_github}")
 md5sums=('SKIP')
 
 pkgver() {
@@ -123,7 +121,7 @@ build() {
 package_emacs-git-gtk2() {
   pkgdesc="GNU Emacs, the extensible self-documenting text editor — built from git sources."
   depends=('gpm' 'giflib' 'm17n-lib' 'desktop-file-utils' 'alsa-lib' 'imagemagick' 'gtk2')
-  conflicts=('emacs')
+  conflicts=('emacs' 'emacs-git')
   provides=('emacs')
 
   cd "$srcdir/${_pkgname}"
@@ -150,6 +148,8 @@ package_emacs-git-gtk2() {
 package_emacs-git-docs() {
   pkgdesc="GNU Emacs, built from git sources — HTML and PDF documentation package."
   makedepends+=('texlive-core')
+  provides=('emacs-docs')
+  conflicts=('emacs-docs')
 
   cd "$srcdir/${_pkgname}"
 
